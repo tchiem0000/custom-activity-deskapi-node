@@ -19,10 +19,10 @@ var app = express();
 
 
 var APIKeys = {
-    appId           : '__insert_your_app_id__',
-    clientId        : '__insert_your_app_client_id__',
-    clientSecret    : '__insert_your_app_client_secret__',
-    appSignature    : '__insert_your_app_signature__',
+    appId           : 'ffc786e5-720f-43c3-b6d8-1b0897e22cef',
+    clientId        : 'ffc786e5-720f-43c3-b6d8-1b0897e22cef',
+    clientSecret    : 'ez2h6ZMDHFj56MUigph_6WVb_Ljwl1S2tmaHrvMh02xom9nCLa5fGAPZTI9TRQkTnveYAqKCiAMi8Pjz6IMeND5Shi_1WeVNqr2NkVTeAVecwAH97oA1QNRs939lggSEcPvT2Qqv7YCc3rmNX0cqAWtYnBwtdNlzHtBOfu09DtrmBrHO0CFdde90DCDNUloN8MyYTiCMpgPMdTVr4JdpeqWpW9YL5ezoEoQWiMd98ES3B69DEe9nvGrzkhcjqA2',
+    appSignature    : 'ez2h6ZMDHFj56MUigph_6WVb_Ljwl1S2tmaHrvMh02xom9nCLa5fGAPZTI9TRQkTnveYAqKCiAMi8Pjz6IMeND5Shi_1WeVNqr2NkVTeAVecwAH97oA1QNRs939lggSEcPvT2Qqv7YCc3rmNX0cqAWtYnBwtdNlzHtBOfu09DtrmBrHO0CFdde90DCDNUloN8MyYTiCMpgPMdTVr4JdpeqWpW9YL5ezoEoQWiMd98ES3B69DEe9nvGrzkhcjqA2',
     authUrl         : 'https://auth.exacttargetapis.com/v1/requestToken?legacy=1'
 };
 
