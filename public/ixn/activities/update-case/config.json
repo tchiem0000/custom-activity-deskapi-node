@@ -15,7 +15,7 @@
     "arguments": {
         "execute": {     	
 			"inArguments":[	
-				{ "caseID":"{{Interaction.__your-activity-customer-key__.caseID}}" }
+				{ "caseID":"{{Interaction.REST-1-queryIt.caseID}}" }
 			],        	
             "outArguments": [				
 			],
@@ -29,7 +29,7 @@
         }
     },
     "configurationArguments": {
-    	"applicationExtensionKey": "8522dd5c-8ee4-4da7-9d4e-b425f7a74a6f",
+    	"applicationExtensionKey": "9c5bd7f8-d447-44e7-bb03-9527d59828cf",
         "defaults": { },     
         "save": {
         	"url": "https://deskcomapi.herokuapp.com/ixn/activities/update-case/save/",
