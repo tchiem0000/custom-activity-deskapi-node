@@ -32,7 +32,7 @@
         }
     },
     "configurationArguments": {
-    	"applicationExtensionKey": "8522dd5c-8ee4-4da7-9d4e-b425f7a74a6f",
+    	"applicationExtensionKey": "86701957-365c-4074-95f1-2dd83201ffb3",
         "defaults": { "priority": "4"},             
         "save": {
         	"url": "https://deskcomapi.herokuapp.com/ixn/activities/create-case/save/",
