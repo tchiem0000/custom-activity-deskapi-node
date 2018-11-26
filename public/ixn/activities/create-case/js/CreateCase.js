@@ -111,6 +111,9 @@ define( function( require ) {
             case 2:
                 $('#step2').show();
                 $('#showPriority').html(getPriority());
+				
+				$('#showMessage').html(getSMSMessage());
+				
                 connection.trigger('updateButton', { button: 'back', visible: true });
                 connection.trigger('updateButton', { button: 'next', text: 'done', visible: true });
                 break;
