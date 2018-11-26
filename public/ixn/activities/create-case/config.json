@@ -33,7 +33,7 @@
     },
     "configurationArguments": {
     	"applicationExtensionKey": "86701957-365c-4074-95f1-2dd83201ffb3",
-        "defaults": { "priority": "4"},             
+        "defaults": { "priority": "4", "smsMessage": "enter your message here"}, 		
         "save": {
         	"url": "https://deskcomapi.herokuapp.com/ixn/activities/create-case/save/",
             "body": "",
