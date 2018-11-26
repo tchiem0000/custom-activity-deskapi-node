@@ -8,15 +8,15 @@
     "type": "REST",
     "lang": {
         "en-US": {
-            "name": "Desk.com Create Case",
-            "description": "Activity for creating a case via Desk.com API."
+            "name": "Send SMS Message",
+            "description": "Activity for sending SMS messages."
         }
     },
     "arguments": {
         "execute": {       
 			"inArguments":[
-				{ "firstName":"{{Contact.Attribute.demotest.FirstName}}"},
-				{ "lastName":"{{Contact.Attribute.demotest.LastName}}"},
+				{ "firstName":"{{Contact.Attribute.demotest9.firstname}}"},
+				{ "lastName":"{{Contact.Attribute.demotest9.lastname}}"},
 				{ "emailAddress": "{{Contact.Default.Email}}"}							
 			],
             "outArguments": [
