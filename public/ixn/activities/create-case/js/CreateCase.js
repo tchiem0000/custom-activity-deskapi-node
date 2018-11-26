@@ -131,7 +131,7 @@ define( function( require ) {
     function save() {
 
         var value = getPriority();
-		var smsMessage; = getSMSMessage();
+		var smsMessage = getSMSMessage();
 
         // toJbPayload is initialized on populateFields above.  Journey Builder sends an initial payload with defaults
         // set by this activity's config.json file.  Any property may be overridden as desired.
@@ -155,3 +155,4 @@ define( function( require ) {
     }; 
     	 
 });
+			
