@@ -41,7 +41,8 @@ define( function( require ) {
 		});                
 
         // If there is no priority selected, disable the next button
-        if (!priority || !smsMessage) {
+		//if (!priority || !smsMessage) {
+        if (!smsMessage) {
             connection.trigger('updateButton', { button: 'next', enabled: false });
         }
 
