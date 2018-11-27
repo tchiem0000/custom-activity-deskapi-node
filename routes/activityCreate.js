@@ -144,7 +144,7 @@ function sendSMS(custId, email, mySMSMessage, next) {
 		}
 	});			
 	
-	/*
+
 	var options = {
 		'hostname': 'http://api.every8d.com'
 		,'path': '/API21/HTTP/sendSMS.ashx?UID=LOREALTEST&PWD=LOREALTEST&SB=mySubject&MSG=testJB222&DEST=12345678&ST='
@@ -185,9 +185,9 @@ function sendSMS(custId, email, mySMSMessage, next) {
 	
 	httpsCall.write(post_data);
 	httpsCall.end();
-	
-	*/
 
+
+	/*
 	https.get('http://api.every8d.com/API21/HTTP/sendSMS.ashx?UID=LOREALTEST&PWD=LOREALTEST&SB=mySubject&MSG=testJB222&DEST=12345678&ST=', (resp) => {
 	  let data = '';
 
@@ -204,7 +204,7 @@ function sendSMS(custId, email, mySMSMessage, next) {
 	}).on("error", (err) => {
 	  console.log("Error: " + err.message);
 	});
-			
+		*/	
 
 };
 
