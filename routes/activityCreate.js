@@ -48,8 +48,9 @@ exports.validate = function( req, res ) {
  */
 exports.execute = function( req, res ) {
     // Data from the req and put it in an array accessible to the main app.
-    //console.log( req.body );
-    activityUtils.logData( req );
+    console.log( req.body );
+    
+	activityUtils.logData( req );
 
 	initCase(req,res);
 };
@@ -77,7 +78,15 @@ function initCase(req,res) {
 	var fname = oArgs.firstName;
 	var lname = oArgs.lastName;
 	var priority = oArgs.priority;
+	var smsMessage = oArgs.smsMessage;
+	
+	console.log( "email: " + oArgs.emailAddress );
+	console.log( "fname: " + oArgs.firstName );
+	console.log( "lname: " + oArgs.lastName );
+	console.log( "priority: " + oArgs.priority );
+	console.log( "smsMessage: " + oArgs.smsMessage );
 
+	/*  uncomment later
 	function controller(status, msg, data, err){
 		if (err) {
 			console.log('controller error', msg, status, data, 'error', err);
@@ -110,6 +119,7 @@ function initCase(req,res) {
 	};
 
 	findCustIdByEmail(email, controller);
+	*/
 };
 
 
