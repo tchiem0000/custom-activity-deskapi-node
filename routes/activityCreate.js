@@ -102,7 +102,7 @@ function initSMS(req,res) {
 		} else if (msg == 'createCase') {
 			console.log('controller createCase', data);
 			if (data.id) {
-				res.send( 200, {"caseID": data.id} ); //return the new CaseID
+				res.send( 200, {"caseID": "1111111"} ); //return the new CaseID  res.send( 200, {"caseID": data.id} )
 			} else {
 				res.send( 500, {message: 'Error creating Desk.com case.'} );
 			}					
