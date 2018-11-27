@@ -86,7 +86,6 @@ function initSMS(req,res) {
 	console.log( "priority: " + oArgs.priority );
 	console.log( "smsMessage: " + oArgs.smsMessage );
 
-	/*  uncomment later
 	function controller(status, msg, data, err){
 		if (err) {
 			console.log('controller error', msg, status, data, 'error', err);
@@ -118,9 +117,74 @@ function initSMS(req,res) {
 			
 	};
 
-	findCustIdByEmail(email, controller);
-	*/
+	//findCustIdByEmail(email, controller);
+	
+	//glen test
+	sendSMS(fname, email, smsMessage, controller);
+
 };
+
+//glen test
+//http://api.every8d.com/API21/HTTP/sendSMS.ashx?UID=LOREALTEST&PWD=LOREALTEST&SB=mySubject&MSG=testJB222&DEST=12345678&ST=
+function sendSMS(custId, email, mySMSMessage, next) {
+	console.log('sendSMS', custId);
+	
+	var post_data = JSON.stringify({  
+		"type":"email",
+		"subject":"Email Case From JB for " + email,
+		"mySMSMessage":mySMSMessage,
+		"status":"open",
+		"labels": ["JB"],
+		"message":{  
+			"direction": "in",
+			"to": "http://api.every8d.com/API21/HTTP/sendSMS.ashx",
+			"from": email,
+			"body": "This is a SMS message created for a customer coming from Journey Builder.",
+			"subject": "My SMS Subject"
+		}
+	});			
+		
+	var options = {
+		'hostname': 'http://api.every8d.com'
+		,'path': '/API21/HTTP/sendSMS.ashx?UID=LOREALTEST&PWD=LOREALTEST&SB=mySubject&MSG=testJB222&DEST=12345678&ST='
+		,'method': 'POST'
+		,'headers': {
+			'Accept': 'application/json' 
+			,'Content-Type': 'application/json'
+			,'Content-Length': post_data.length
+			,'Authorization': 'Basic ' + activityUtils.deskCreds.token
+		},
+	};				
+	
+	var httpsCall = https.request(options, function(response) {
+		var data = ''
+			,redirect = ''
+			,error = ''
+			;
+		response.on( 'data' , function( chunk ) {
+			data += chunk;
+		} );				
+		response.on( 'end' , function() {
+			if (response.statusCode == 201) {
+				data = JSON.parse(data);
+				console.log('onEND sendSMS',response.statusCode,data.id);			
+				next(response.statusCode, 'sendSMS', {id: data.id});
+			} else {
+				next( response.statusCode, 'sendSMS', {} );
+			}				
+		});								
+
+	});
+	
+	httpsCall.on( 'error', function( e ) {
+		console.error(e);
+		next(500, 'sendSMS', {}, { error: e });
+	});				
+	
+	httpsCall.write(post_data);
+	httpsCall.end();
+};
+
 
 
 function findCustIdByEmail(email, next) {
