@@ -20,7 +20,7 @@
 				{ "emailAddress": "{{Contact.Default.Email}}"}							
 			],
             "outArguments": [
-            	{ "caseID":"" }
+            	{ "caseID":"number" }
 			],			
 			"url": "https://deskcomapi.herokuapp.com/ixn/activities/create-case/execute/",
             "verb": "POST",
