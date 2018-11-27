@@ -96,10 +96,10 @@ define( function( require ) {
             connection.trigger('updateButton', { button: 'next', enabled: Boolean(priority) });
         });
 		
-		$('.smsMessage').change(function(){
+		$('#smsMessage').change(function(){
             var smsMessage = getSMSMessage();
 			
-			//alert(smsMessage);
+			alert(smsMessage);
 			
             connection.trigger('updateButton', { button: 'next', enabled: Boolean(smsMessage) });
 		});
