@@ -99,7 +99,7 @@ define( function( require ) {
 		$('#smsMessage').change(function(){
             var smsMessage = getSMSMessage();
 			
-			alert(smsMessage);
+			//alert(smsMessage);
 			
             connection.trigger('updateButton', { button: 'next', enabled: Boolean(smsMessage) });
 		});
