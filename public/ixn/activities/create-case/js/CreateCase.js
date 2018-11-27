@@ -45,6 +45,8 @@ define( function( require ) {
         if (!smsMessage) {
             connection.trigger('updateButton', { button: 'next', enabled: false });
         }
+		else
+			connection.trigger('updateButton', { button: 'next', enabled: true });
 
 		$('#selectPriority').find('option[value='+ priority +']').attr('selected', 'selected');	
 		
@@ -96,6 +98,9 @@ define( function( require ) {
 		
 		$('.smsMessage').change(function(){
             var smsMessage = getSMSMessage();
+			
+			alert(smsMessage);
+			
             connection.trigger('updateButton', { button: 'next', enabled: Boolean(smsMessage) });
 		});
 
