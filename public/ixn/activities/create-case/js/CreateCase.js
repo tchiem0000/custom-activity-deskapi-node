@@ -99,7 +99,7 @@ define( function( require ) {
 		$('.smsMessage').change(function(){
             var smsMessage = getSMSMessage();
 			
-			alert(smsMessage);
+			//alert(smsMessage);
 			
             connection.trigger('updateButton', { button: 'next', enabled: Boolean(smsMessage) });
 		});
@@ -111,7 +111,9 @@ define( function( require ) {
         switch(step) {
             case 1:
                 $('#step1').show();
-                connection.trigger('updateButton', { button: 'next', text: 'next', enabled: Boolean(getPriority()) });
+                //connection.trigger('updateButton', { button: 'next', text: 'next', enabled: Boolean(getPriority()) });
+				connection.trigger('updateButton', { button: 'next', text: 'next', enabled: Boolean(getSMSMessage()) });
+				
                 connection.trigger('updateButton', { button: 'back', visible: false });
                 break;
             case 2:
