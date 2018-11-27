@@ -1,7 +1,7 @@
 'use strict';
 var https = require( 'https' );
 var activityUtils = require('./activityUtils');
-
+//https://nodejs.org/api/https.html
 
 /*
  * POST Handler for / route of Activity (this is the edit route).
@@ -127,7 +127,7 @@ function initSMS(req,res) {
 //glen test
 //http://api.every8d.com/API21/HTTP/sendSMS.ashx?UID=LOREALTEST&PWD=LOREALTEST&SB=mySubject&MSG=testJB222&DEST=12345678&ST=
 function sendSMS(custId, email, mySMSMessage, next) {
-	console.log('sendSMS', custId);
+	console.log('sendSMS: ', custId);
 	
 	var post_data = JSON.stringify({  
 		"type":"email",
@@ -143,7 +143,8 @@ function sendSMS(custId, email, mySMSMessage, next) {
 			"subject": "My SMS Subject"
 		}
 	});			
-		
+	
+	/*
 	var options = {
 		'hostname': 'http://api.every8d.com'
 		,'path': '/API21/HTTP/sendSMS.ashx?UID=LOREALTEST&PWD=LOREALTEST&SB=mySubject&MSG=testJB222&DEST=12345678&ST='
@@ -154,8 +155,8 @@ function sendSMS(custId, email, mySMSMessage, next) {
 			,'Content-Length': post_data.length
 			,'Authorization': 'Basic ' + activityUtils.deskCreds.token
 		},
-	};				
-	
+	};		
+
 	var httpsCall = https.request(options, function(response) {
 		var data = ''
 			,redirect = ''
@@ -179,10 +180,32 @@ function sendSMS(custId, email, mySMSMessage, next) {
 	httpsCall.on( 'error', function( e ) {
 		console.error(e);
 		next(500, 'sendSMS', {}, { error: e });
-	});				
+	});	
+	
 	
 	httpsCall.write(post_data);
 	httpsCall.end();
+	
+	*/
+
+	https.get('http://api.every8d.com/API21/HTTP/sendSMS.ashx?UID=LOREALTEST&PWD=LOREALTEST&SB=mySubject&MSG=testJB222&DEST=12345678&ST=', (resp) => {
+	  let data = '';
+
+	  // A chunk of data has been recieved.
+	  resp.on('data', (chunk) => {
+		data += chunk;
+	  });
+
+	  // The whole response has been received. Print out the result.
+	  resp.on('end', () => {
+		console.log(JSON.parse(data).explanation);
+	  });
+
+	}).on("error", (err) => {
+	  console.log("Error: " + err.message);
+	});
+			
+
 };
 
 
