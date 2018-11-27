@@ -52,11 +52,11 @@ exports.execute = function( req, res ) {
     
 	activityUtils.logData( req );
 
-	initCase(req,res);
+	initSMS(req,res);
 };
 
 
-function initCase(req,res) {
+function initSMS(req,res) {
 /*
 	Search for email address
 	If found, use it to create a case.
