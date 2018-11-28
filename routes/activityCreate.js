@@ -183,18 +183,20 @@ function sendSMS(custId, email, mySMSMessage, next) {
 	
 	//107.00,1,1,0,98b8bb75-17cc-4518-b526-9d15601fb31b
 	//CREDIT,SENDED,COST,UNSEND,BATCH_ID
-	var msg2 = 'my msg: ' + mySMSMessage;
+	var msg2 = 'my msg #: ' + mySMSMessage;
 	
 	console.log('msg2: ' + msg2);
+	
+	//console.log(encodeURI('this is a test #'));
 	
 	var options = {
 		host: 'sms.lorealuxe.com',
 		port: 443,
-		path: '/loreal/API21/HTTP/sendSMS.ashx?UID=LOREALTEST&PWD=LOREALTEST&SB=' + email + '&MSG=' + mySMSMessage + '&DEST=0926147720&ST=',
+		path: '/loreal/API21/HTTP/sendSMS.ashx?UID=LOREALTEST&PWD=LOREALTEST&SB=' + encodeURI(email) + '&MSG=' + encodeURI(msg2) + '&DEST=0926147720&ST=',
 		method: 'GET'
 	};
 
-	console.log('options: ' + options);
+	//console.log('options: ' + options);
 	
 	//https://sms.lorealuxe.com/loreal/API21/HTTP/sendSMS.ashx?UID=LOREALTEST&PWD=LOREALTEST&SB=mySubject&MSG=testJB&DEST=0926147720&ST=
 	var httpsCall = https.request(options, function(response) {
