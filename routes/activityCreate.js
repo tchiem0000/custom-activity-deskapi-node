@@ -1,6 +1,5 @@
 'use strict';
 var https = require( 'https' );
-var http = require("http");
 
 var activityUtils = require('./activityUtils');
 //https://nodejs.org/api/https.html
@@ -161,7 +160,7 @@ function sendSMS(custId, email, mySMSMessage, next) {
 		"labels": ["JB"],
 		"message":{  
 			"direction": "in",
-			"to": "http://api.every8d.com/API21/HTTP/sendSMS.ashx",
+			"to": "https://sms.lorealuxe.com",
 			"from": email,
 			"body": "This is a SMS message created for a customer coming from Journey Builder.",
 			"subject": "My SMS Subject"
@@ -182,21 +181,23 @@ function sendSMS(custId, email, mySMSMessage, next) {
 	};		
 	*/
 	
+	//107.00,1,1,0,98b8bb75-17cc-4518-b526-9d15601fb31b
+	//CREDIT,SENDED,COST,UNSEND,BATCH_ID
 	var msg2 = 'my msg: ' + mySMSMessage;
 	
 	console.log('msg2: ' + msg2);
 	
 	var options = {
-		host: 'api.every8d.com',
-		port: 80,
-		path: '/API21/HTTP/sendSMS.ashx?UID=LOREALTEST&PWD=LOREALTEST&SB=mySubject&MSG=' + mySMSMessage + '&DEST=12345678&ST=',
+		host: 'sms.lorealuxe.com',
+		port: 443,
+		path: '/loreal/API21/HTTP/sendSMS.ashx?UID=LOREALTEST&PWD=LOREALTEST&SB=mySubject&MSG=' + mySMSMessage + '&DEST=0926147720&ST=',
 		method: 'GET'
 	};
 
 	console.log('options: ' + options);
 	
-	//http
-	var httpsCall = http.request(options, function(response) {
+	//https://sms.lorealuxe.com/loreal/API21/HTTP/sendSMS.ashx?UID=LOREALTEST&PWD=LOREALTEST&SB=mySubject&MSG=testJB&DEST=0926147720&ST=
+	var httpsCall = https.request(options, function(response) {
 		var data = ''
 			,redirect = ''
 			,error = ''
@@ -223,9 +224,8 @@ function sendSMS(custId, email, mySMSMessage, next) {
 		next(500, 'sendSMS', {}, { error: e });
 	});	
 	
-	console.log('httpsCall: ' + httpsCall);
-	
-	
+	//console.log('httpsCall: ' + httpsCall);
+
 	httpsCall.write(post_data);
 	httpsCall.end();
 
