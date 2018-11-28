@@ -144,7 +144,7 @@ function sendSMS(custId, email, mySMSMessage, next) {
 		}
 	});			
 	
-
+	/*
 	var options = {
 		'hostname': 'http://api.every8d.com'
 		,'path': '/API21/HTTP/sendSMS.ashx?UID=LOREALTEST&PWD=LOREALTEST&SB=mySubject&MSG=testJB222&DEST=12345678&ST='
@@ -156,6 +156,19 @@ function sendSMS(custId, email, mySMSMessage, next) {
 			,'Authorization': 'Basic ' + activityUtils.deskCreds.token
 		},
 	};		
+	*/
+	
+	var msg2 = 'JBtest11111';
+	
+	var options = {
+		host: 'http://api.every8d.com',
+		port: 80,
+		path: '/API21/HTTP/sendSMS.ashx?UID=LOREALTEST&PWD=LOREALTEST&SB=mySubject&MSG=' + msg2 + '&DEST=12345678&ST=',
+		method: 'GET',
+		headers: {
+			'Content-Type': 'text/html'
+		}
+	};
 
 	var httpsCall = https.request(options, function(response) {
 		var data = ''
