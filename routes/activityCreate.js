@@ -75,7 +75,12 @@ function initSMS(req,res) {
 	
 	for (var i=0; i<aArgs.length; i++) {  
 		for (var key in aArgs[i]) { 
+		
+			console.log("key: " + key);
+		
 			oArgs[key] = aArgs[i][key]; 
+			
+			console.log("oArgs[key] value: " + oArgs[key]);
 		}
 	}
 
