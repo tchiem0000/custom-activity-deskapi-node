@@ -92,6 +92,8 @@ function initSMS(req,res) {
 			res.json( status, err );
 			return;
 		}
+		
+		/*
 		if (msg == 'findCustIdByEmail') {
 			console.log('controller findCustIdByEmail', data);
 			if (data.id) {
@@ -114,7 +116,8 @@ function initSMS(req,res) {
 				res.send( 500, {message: 'Error creating customer'} );
 			}
 		}
-			
+		*/
+		
 	};
 
 	//findCustIdByEmail(email, controller);
