@@ -100,6 +100,10 @@ function initSMS(req,res) {
 			res.json( status, err );
 			return;
 		}
+		else{
+			console.log('controller success done');
+			
+		}
 		
 		/*
 		if (msg == 'findCustIdByEmail') {
@@ -185,7 +189,7 @@ function sendSMS(custId, email, mySMSMessage, next) {
 	var options = {
 		host: 'api.every8d.com',
 		port: 80,
-		path: '/API21/HTTP/sendSMS.ashx?UID=LOREALTEST&PWD=LOREALTEST&SB=mySubject&MSG=' + msg2 + '&DEST=12345678&ST=',
+		path: '/API21/HTTP/sendSMS.ashx?UID=LOREALTEST&PWD=LOREALTEST&SB=mySubject&MSG=' + mySMSMessage + '&DEST=12345678&ST=',
 		method: 'GET'
 	};
 
