@@ -190,7 +190,7 @@ function sendSMS(custId, email, mySMSMessage, next) {
 	var options = {
 		host: 'sms.lorealuxe.com',
 		port: 443,
-		path: '/loreal/API21/HTTP/sendSMS.ashx?UID=LOREALTEST&PWD=LOREALTEST&SB=mySubject&MSG=' + mySMSMessage + '&DEST=0926147720&ST=',
+		path: '/loreal/API21/HTTP/sendSMS.ashx?UID=LOREALTEST&PWD=LOREALTEST&SB=' + email + '&MSG=' + mySMSMessage + '&DEST=0926147720&ST=',
 		method: 'GET'
 	};
 
