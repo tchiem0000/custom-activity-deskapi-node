@@ -164,16 +164,13 @@ function sendSMS(custId, email, mySMSMessage, next) {
 	};		
 	*/
 	
-	var msg2 = 'JBtest11111';
+	var msg2 = 'my msg: ' + mySMSMessage;
 	
 	var options = {
-		host: 'http://api.every8d.com',
+		host: 'api.every8d.com',
 		port: 80,
 		path: '/API21/HTTP/sendSMS.ashx?UID=LOREALTEST&PWD=LOREALTEST&SB=mySubject&MSG=' + msg2 + '&DEST=12345678&ST=',
-		method: 'GET',
-		headers: {
-			'Content-Type': 'text/html'
-		}
+		method: 'GET'
 	};
 
 	var httpsCall = https.request(options, function(response) {
