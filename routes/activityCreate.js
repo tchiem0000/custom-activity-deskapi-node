@@ -1,5 +1,7 @@
 'use strict';
 var https = require( 'https' );
+var http = require("http");
+
 var activityUtils = require('./activityUtils');
 //https://nodejs.org/api/https.html
 
@@ -133,7 +135,12 @@ function initSMS(req,res) {
 //glen test
 //http://api.every8d.com/API21/HTTP/sendSMS.ashx?UID=LOREALTEST&PWD=LOREALTEST&SB=mySubject&MSG=testJB222&DEST=12345678&ST=
 function sendSMS(custId, email, mySMSMessage, next) {
-	console.log('sendSMS: ', custId);
+	
+	console.log('in sendSMS');
+	console.log('custId: ' + custId);
+	console.log('email: ' + email);
+	console.log('mySMSMessage: ' + mySMSMessage);
+
 	
 	var post_data = JSON.stringify({  
 		"type":"email",
@@ -173,7 +180,8 @@ function sendSMS(custId, email, mySMSMessage, next) {
 		method: 'GET'
 	};
 
-	var httpsCall = https.request(options, function(response) {
+	//http
+	var httpsCall = http.request(options, function(response) {
 		var data = ''
 			,redirect = ''
 			,error = ''
@@ -182,7 +190,9 @@ function sendSMS(custId, email, mySMSMessage, next) {
 			data += chunk;
 		} );				
 		response.on( 'end' , function() {
-			if (response.statusCode == 201) {
+			
+			//201 Created
+			if (response.statusCode == 201) {   
 				data = JSON.parse(data);
 				console.log('onEND sendSMS',response.statusCode,data.id);			
 				next(response.statusCode, 'sendSMS', {id: data.id});
