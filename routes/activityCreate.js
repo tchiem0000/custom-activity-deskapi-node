@@ -120,6 +120,9 @@ function initSMS(req,res) {
 		
 	};
 
+	//need to return this or error
+	res.send( 200, {"caseID": ""} ); 
+	
 	//findCustIdByEmail(email, controller);
 	
 	//glen test
