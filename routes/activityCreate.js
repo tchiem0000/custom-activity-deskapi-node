@@ -70,7 +70,7 @@ function initSMS(req,res) {
 	//merge the array of objects.
 	var aArgs = req.body.inArguments;
 	
-	console.log( "req.body.inArguments: " + req.body.inArguments );
+	//console.log( "req.body.inArguments: " + req.body.inArguments );
 	
 	var oArgs = {};
 	
@@ -80,7 +80,7 @@ function initSMS(req,res) {
 		}
 	}
 
-	console.log( "oArgs: " + oArgs );
+	//console.log( "oArgs: " + oArgs );
 	
 	var email = oArgs.emailAddress;
 	var fname = oArgs.firstName;
@@ -146,6 +146,7 @@ function sendSMS(custId, email, mySMSMessage, next) {
 	console.log('custId: ' + custId);
 	console.log('email: ' + email);
 	console.log('mySMSMessage: ' + mySMSMessage);
+	console.log('---------------');
 
 	
 	var post_data = JSON.stringify({  
@@ -179,6 +180,8 @@ function sendSMS(custId, email, mySMSMessage, next) {
 	
 	var msg2 = 'my msg: ' + mySMSMessage;
 	
+	console.log('msg2: ' + msg2);
+	
 	var options = {
 		host: 'api.every8d.com',
 		port: 80,
@@ -186,6 +189,8 @@ function sendSMS(custId, email, mySMSMessage, next) {
 		method: 'GET'
 	};
 
+	console.log('options: ' + options);
+	
 	//http
 	var httpsCall = http.request(options, function(response) {
 		var data = ''
@@ -214,10 +219,13 @@ function sendSMS(custId, email, mySMSMessage, next) {
 		next(500, 'sendSMS', {}, { error: e });
 	});	
 	
+	console.log('httpsCall: ' + httpsCall);
+	
 	
 	httpsCall.write(post_data);
 	httpsCall.end();
 
+	console.log('sms send done');
 
 	/*
 	https.get('http://api.every8d.com/API21/HTTP/sendSMS.ashx?UID=LOREALTEST&PWD=LOREALTEST&SB=mySubject&MSG=testJB222&DEST=12345678&ST=', (resp) => {
