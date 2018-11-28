@@ -50,7 +50,7 @@ exports.validate = function( req, res ) {
  */
 exports.execute = function( req, res ) {
     // Data from the req and put it in an array accessible to the main app.
-    console.log( req.body );
+    console.log("req.body: " + req.body);
     
 	activityUtils.logData( req );
 
@@ -69,13 +69,19 @@ function initSMS(req,res) {
 
 	//merge the array of objects.
 	var aArgs = req.body.inArguments;
+	
+	console.log( "req.body.inArguments: " + req.body.inArguments );
+	
 	var oArgs = {};
+	
 	for (var i=0; i<aArgs.length; i++) {  
 		for (var key in aArgs[i]) { 
 			oArgs[key] = aArgs[i][key]; 
 		}
 	}
 
+	console.log( "oArgs: " + oArgs );
+	
 	var email = oArgs.emailAddress;
 	var fname = oArgs.firstName;
 	var lname = oArgs.lastName;
