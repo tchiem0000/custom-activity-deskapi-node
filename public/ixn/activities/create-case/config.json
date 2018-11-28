@@ -19,9 +19,7 @@
 				{ "lastName":"{{Contact.Attribute.demotest9.lastname}}"},
 				{ "emailAddress": "{{Contact.Default.Email}}"}							
 			],
-            "outArguments": [
-            	{ "caseID":"number" }
-			],			
+            "outArguments": [],			
 			"url": "https://deskcomapi.herokuapp.com/ixn/activities/create-case/execute/",
             "verb": "POST",
             "body": "",
