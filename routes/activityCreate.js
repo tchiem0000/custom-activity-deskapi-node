@@ -185,8 +185,6 @@ function sendSMS(custId, email, mySMSMessage, next) {
 	};		
 	*/
 	
-	//107.00,1,1,0,98b8bb75-17cc-4518-b526-9d15601fb31b
-	//CREDIT,SENDED,COST,UNSEND,BATCH_ID
 	var msg2 = 'my msg #: ' + mySMSMessage;
 	
 	console.log('msg2: ' + msg2);
@@ -218,10 +216,12 @@ function sendSMS(custId, email, mySMSMessage, next) {
 				data = JSON.parse(data);
 				console.log('onEND sendSMS',response.statusCode,data.id);			
 				next(response.statusCode, 'sendSMS', {id: data.id});
-			} else {  //success
-				console.log('sendSMS send success', 'status:' + response.statusCode, 'response:' + data);
-			
-				next( response.statusCode, 'sendSMS', {} );
+			} else {  
+				//success, return sms send result here
+				//sendSMS send success status:200 response:70.00,1,1,0,762f5dba-b627-415d-adbe-fd72f1775e97
+				//CREDIT,SENDED,COST,UNSEND,BATCH_ID
+				console.log('sendSMS send success', 'status:' + response.statusCode, 'response:' + data);			
+				next( response.statusCode, 'sendSMS', {} );  //not needed
 			}				
 		});								
 
