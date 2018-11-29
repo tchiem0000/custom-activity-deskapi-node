@@ -154,8 +154,7 @@ define( function( require ) {
 		toJbPayload['arguments'].execute.inArguments.push({"smsMessage": smsMessage});
 		
 		//test
-		console.log('toJbPayload arguments: ', toJbPayload['arguments']);
-		console.log('toJbPayload configurationArguments: ', toJbPayload['configurationArguments']);
+		console.log('toJbPayload arguments: ', toJbPayload['arguments'].execute.inArguments);
 
 		/*
         toJbPayload['metaData'].things = 'stuff';
