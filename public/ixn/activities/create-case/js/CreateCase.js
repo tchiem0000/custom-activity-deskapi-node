@@ -154,7 +154,21 @@ define( function( require ) {
 		toJbPayload['arguments'].execute.inArguments.push({"smsMessage": smsMessage});
 		
 		//test
-		console.log('toJbPayload arguments: ', toJbPayload['arguments'].execute.inArguments);
+		console.log('toJbPayload arguments');
+		
+		//test
+		for (var i=0; i<toJbPayload['arguments'].execute.inArguments.length; i++) {  
+			for (var key in toJbPayload['arguments'].execute.inArguments[i]) { 
+			
+				console.log("key: " + key);
+			
+				oArgs[key] = toJbPayload['arguments'].execute.inArguments[i][key]; 
+				
+				console.log("oArgs[key] value: " + oArgs[key]);
+			}
+		}	
+		
+		
 
 		/*
         toJbPayload['metaData'].things = 'stuff';
