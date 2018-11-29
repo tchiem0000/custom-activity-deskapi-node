@@ -168,6 +168,7 @@ function sendSMS(aArgs, next) {
 	console.log( "priority: " + oArgs.priority );
 	console.log( "smsMessage: " + oArgs.smsMessage );
 	
+	/*
 	var post_data = JSON.stringify({  
 		"type":"email",
 		"subject":"Email Case From JB for " + email,
@@ -182,6 +183,7 @@ function sendSMS(aArgs, next) {
 			"subject": "My SMS Subject"
 		}
 	});			
+	*/
 	
 	/*
 	var options = {
@@ -246,7 +248,8 @@ function sendSMS(aArgs, next) {
 	
 	//console.log('httpsCall: ' + httpsCall);
 
-	httpsCall.write(post_data);
+	//httpsCall.write(post_data);
+	httpsCall.write('');
 	httpsCall.end();
 
 	console.log('sms send done');
