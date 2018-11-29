@@ -155,10 +155,6 @@ define( function( require ) {
 		
 
 		//test		
-		//***important, add new field names here
-		var fieldNames = ["priority", "smsMessage"];
-		
-		
 		var bolRecordFound = false;
 		
 		//loop through each element in array to see if key already exists
@@ -168,8 +164,22 @@ define( function( require ) {
             });
         });
 		
-		//if not updated, push to array
+		//reset
+        toJbPayload['arguments'].execute.inArguments = [{
+            "firstName":"{{Contact.Attribute.demotest9.firstname}}", 
+            "lastName":"{{Contact.Attribute.demotest9.lastname}}", 
+			"emailAddress": "{{Contact.Default.Email}}", 
+			"priority": getPriority(),
+			"smsMessage": getSMSMessage()
+        }];
+				
+		console.log("reset------------");
 		
+        $.each(toJbPayload['arguments'].execute.inArguments, function (index, inArgument) {
+            $.each(inArgument, function (key, val) {                
+				console.log(key + " : " + val);
+            });
+        });		
 		
 		/*
 			for (var key in toJbPayload['arguments'].execute.inArguments[i]) { 	
