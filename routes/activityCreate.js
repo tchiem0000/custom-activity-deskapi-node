@@ -141,20 +141,32 @@ function initSMS(req,res) {
 	//findCustIdByEmail(email, controller);
 	
 	//glen test, uncomment
-///////	sendSMS(fname, email, smsMessage, controller);
+	sendSMS(aArgs, controller);
 
 };
 
 //glen test
 //http://api.every8d.com/API21/HTTP/sendSMS.ashx?UID=LOREALTEST&PWD=LOREALTEST&SB=mySubject&MSG=testJB222&DEST=12345678&ST=
-function sendSMS(custId, email, mySMSMessage, next) {
+function sendSMS(aArgs, next) {
 	
-	console.log('in sendSMS');
-	console.log('custId: ' + custId);
-	console.log('email: ' + email);
-	console.log('mySMSMessage: ' + mySMSMessage);
-	console.log('---------------');
+	var oArgs = {};
+	
+	for (var i=0; i<aArgs.length; i++) {  
+		for (var key in aArgs[i]) { 
+		
+			console.log("key: " + key);
+		
+			oArgs[key] = aArgs[i][key]; 
+			
+			console.log("oArgs[key] value: " + oArgs[key]);
+		}
+	}
 
+	console.log( "email: " + oArgs.emailAddress );
+	console.log( "fname: " + oArgs.firstName );
+	console.log( "lname: " + oArgs.lastName );
+	console.log( "priority: " + oArgs.priority );
+	console.log( "smsMessage: " + oArgs.smsMessage );
 	
 	var post_data = JSON.stringify({  
 		"type":"email",
@@ -185,16 +197,16 @@ function sendSMS(custId, email, mySMSMessage, next) {
 	};		
 	*/
 	
-	var msg2 = 'my msg #: ' + mySMSMessage;
-	
-	console.log('msg2: ' + msg2);
-	
 	//console.log(encodeURI('this is a test #'));
+	
+	var subject = oArgs.emailAddress;
+	
+	var myMessage = 'Hi ' + oArgs.firstName + ' ' + oArgs.lastName + ', your message is ' + oArgs.smsMessage;
 	
 	var options = {
 		host: 'sms.lorealuxe.com',
 		port: 443,
-		path: '/loreal/API21/HTTP/sendSMS.ashx?UID=LOREALTEST&PWD=LOREALTEST&SB=' + encodeURI(email) + '&MSG=' + encodeURI(msg2) + '&DEST=0926147720&ST=',
+		path: '/loreal/API21/HTTP/sendSMS.ashx?UID=LOREALTEST&PWD=LOREALTEST&SB=' + encodeURI(subject) + '&MSG=' + encodeURI(myMessage) + '&DEST=0926147720&ST=',
 		method: 'GET'
 	};
 
