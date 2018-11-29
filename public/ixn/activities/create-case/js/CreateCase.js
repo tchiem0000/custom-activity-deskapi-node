@@ -158,13 +158,9 @@ define( function( require ) {
 		
 		//test
 		for (var i=0; i<toJbPayload['arguments'].execute.inArguments.length; i++) {  
-			for (var key in toJbPayload['arguments'].execute.inArguments[i]) { 
-			
+			for (var key in toJbPayload['arguments'].execute.inArguments[i]) { 			
 				console.log("key: " + key);
-			
-				oArgs[key] = toJbPayload['arguments'].execute.inArguments[i][key]; 
-				
-				console.log("oArgs[key] value: " + oArgs[key]);
+				console.log("value: " + toJbPayload['arguments'].execute.inArguments[i][key]);
 			}
 		}	
 		
