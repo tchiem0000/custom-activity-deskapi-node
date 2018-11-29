@@ -31,7 +31,7 @@ define( function( require ) {
 			}
 			
 			//oArgs.priority will contain a value if this activity has already been configured:
-			priority = oArgs.priority || toJbPayload['configurationArguments'].defaults.priority; 
+			priority = toJbPayload['configurationArguments'].defaults.priority; 
 
 			smsMessage = oArgs.smsMessage || toJbPayload['configurationArguments'].defaults.smsMessage;			
         }
