@@ -219,13 +219,8 @@ function sendSMS(custId, email, mySMSMessage, next) {
 				console.log('onEND sendSMS',response.statusCode,data.id);			
 				next(response.statusCode, 'sendSMS', {id: data.id});
 			} else {  //success
-				console.log('sendSMS send success', response.statusCode, data);
-				console.log('sendSMS send success', response, response.text, data.text);
-				
-				console.log(JSON.parse(data).explanation);
-				
-				console.log('data this' + data);
-				
+				console.log('sendSMS send success', 'status:' + response.statusCode, 'response:' + data);
+			
 				next( response.statusCode, 'sendSMS', {} );
 			}				
 		});								
