@@ -170,7 +170,7 @@ function sendSMS(aArgs, next) {
 	
 	
 	//replace all******
-	//Hi %%firstName%% %%lastName%%, your email is: %%emailAddress%%
+	//Hi %%firstName%% %%lastName%%, your email is: %%emailAddress%% end
 	var myString = 'start ' + oArgs.smsMessage;
 
 	for (var i=0; i<aArgs.length; i++) {  
@@ -181,9 +181,6 @@ function sendSMS(aArgs, next) {
 
 	console.log('myString: ' + myString);
 
-	return;
-	
-	
 	/*
 	var post_data = JSON.stringify({  
 		"type":"email",
