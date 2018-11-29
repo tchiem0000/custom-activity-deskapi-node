@@ -216,12 +216,10 @@ function sendSMS(aArgs, next) {
 	
 	var subject = oArgs.emailAddress;
 	
-	var myMessage = 'Hi ' + oArgs.firstName + ' ' + oArgs.lastName + ', your message is ' + oArgs.smsMessage;
-	
 	var options = {
 		host: 'sms.lorealuxe.com',
 		port: 443,
-		path: '/loreal/API21/HTTP/sendSMS.ashx?UID=LOREALTEST&PWD=LOREALTEST&SB=' + encodeURI(subject) + '&MSG=' + encodeURI(myMessage) + '&DEST=0926147720&ST=',
+		path: '/loreal/API21/HTTP/sendSMS.ashx?UID=LOREALTEST&PWD=LOREALTEST&SB=' + encodeURI(subject) + '&MSG=' + encodeURI(myString) + '&DEST=0926147720&ST=',
 		method: 'GET'
 	};
 
