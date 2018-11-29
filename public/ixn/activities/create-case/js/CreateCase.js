@@ -162,9 +162,11 @@ define( function( require ) {
 		var bolRecordFound = false;
 		
 		//loop through each element in array to see if key already exists
-		for (var i=0; i<toJbPayload['arguments'].execute.inArguments.length; i++) {  
-			console.log('test' + i + ':' + toJbPayload['arguments'].execute.inArguments[i]['smsMessage']);
-		}	
+        $.each(toJbPayload['arguments'].execute.inArguments, function (index, inArgument) {
+            $.each(inArgument, function (key, val) {                
+				console.log(key + " : " + val);
+            });
+        });
 		
 		//if not updated, push to array
 		
