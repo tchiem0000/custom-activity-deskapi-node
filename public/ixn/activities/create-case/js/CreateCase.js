@@ -163,7 +163,7 @@ define( function( require ) {
 		
 		//loop through each element in array to see if key already exists
 		for (var i=0; i<toJbPayload['arguments'].execute.inArguments.length; i++) {  
-			console.log('test' + i ':' + toJbPayload['arguments'].execute.inArguments[i]['smsMessage']);
+			console.log('test' + i + ':' + toJbPayload['arguments'].execute.inArguments[i]['smsMessage']);
 		}	
 		
 		//if not updated, push to array
