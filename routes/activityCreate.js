@@ -168,6 +168,22 @@ function sendSMS(aArgs, next) {
 	console.log( "priority: " + oArgs.priority );
 	console.log( "smsMessage: " + oArgs.smsMessage );
 	
+	
+	//replace all******
+	//Hi %%firstName%% %%lastName%%, your email is: %%emailAddress%%
+	var myString = 'start ' + oArgs.smsMessage;
+
+	for (var i=0; i<aArgs.length; i++) {  
+		for (var key in aArgs[i]) {						
+			myString = myString.split("%%" + key + "%%").join(aArgs[i][key]);
+		}
+	}
+
+	console.log('myString: ' + myString);
+
+	return;
+	
+	
 	/*
 	var post_data = JSON.stringify({  
 		"type":"email",
