@@ -89,13 +89,13 @@ function initSMS(req,res) {
 	var email = oArgs.emailAddress;
 	var fname = oArgs.firstName;
 	var lname = oArgs.lastName;
-	var priority = oArgs.priority;
+	//var priority = oArgs.priority;
 	var smsMessage = oArgs.smsMessage;
 	
 	console.log( "email: " + oArgs.emailAddress );
 	console.log( "fname: " + oArgs.firstName );
 	console.log( "lname: " + oArgs.lastName );
-	console.log( "priority: " + oArgs.priority );
+	//console.log( "priority: " + oArgs.priority );
 	console.log( "smsMessage: " + oArgs.smsMessage );
 
 	function controller(status, msg, data, err){
@@ -165,7 +165,7 @@ function sendSMS(aArgs, next) {
 	console.log( "email: " + oArgs.emailAddress );
 	console.log( "fname: " + oArgs.firstName );
 	console.log( "lname: " + oArgs.lastName );
-	console.log( "priority: " + oArgs.priority );
+	//console.log( "priority: " + oArgs.priority );
 	console.log( "smsMessage: " + oArgs.smsMessage );
 	
 	
