@@ -141,30 +141,30 @@ define( function( require ) {
 
     function save() {
 
-        var value = getPriority();
-		var smsMessage = getSMSMessage();
+        //var value = getPriority();
+		//var smsMessage = getSMSMessage();
 
         // toJbPayload is initialized on populateFields above.  Journey Builder sends an initial payload with defaults
         // set by this activity's config.json file.  Any property may be overridden as desired.
         //toJbPayload.name = "my activity";
 
 		//this will be sent into the custom activity body within the inArguments array.
-        toJbPayload['arguments'].execute.inArguments.push({"priority": value});
+        //toJbPayload['arguments'].execute.inArguments.push({"priority": value});
 		
-		toJbPayload['arguments'].execute.inArguments.push({"smsMessage": smsMessage});
+		//toJbPayload['arguments'].execute.inArguments.push({"smsMessage": smsMessage});
 		
 
 		//test		
-		var bolRecordFound = false;
-		
 		//loop through each element in array to see if key already exists
+		/*
         $.each(toJbPayload['arguments'].execute.inArguments, function (index, inArgument) {
             $.each(inArgument, function (key, val) {                
 				console.log(key + " : " + val);
             });
         });
+		*/
 		
-		//reset
+		//reset, add new fields here
         toJbPayload['arguments'].execute.inArguments = [{
             "firstName":"{{Contact.Attribute.demotest9.firstname}}", 
             "lastName":"{{Contact.Attribute.demotest9.lastname}}", 
@@ -173,6 +173,7 @@ define( function( require ) {
 			"smsMessage": getSMSMessage()
         }];
 				
+		/*
 		console.log("reset------------");
 		
         $.each(toJbPayload['arguments'].execute.inArguments, function (index, inArgument) {
@@ -180,22 +181,7 @@ define( function( require ) {
 				console.log(key + " : " + val);
             });
         });		
-		
-		/*
-			for (var key in toJbPayload['arguments'].execute.inArguments[i]) { 	
-
-				if (projects[i].value == value) {
-					projects[i].desc = desc;
-					break; //Stop this loop, we found it!
-				}
-				else
-			
-				console.log("key: " + key);
-				console.log("value: " + toJbPayload['arguments'].execute.inArguments[i][key]);
-			}
-		*/
-			
-		
+		*/	
 
 		/*
         toJbPayload['metaData'].things = 'stuff';
