@@ -140,8 +140,8 @@ function initSMS(req,res) {
 	
 	//findCustIdByEmail(email, controller);
 	
-	//glen test
-	sendSMS(fname, email, smsMessage, controller);
+	//glen test, uncomment
+///////	sendSMS(fname, email, smsMessage, controller);
 
 };
 
