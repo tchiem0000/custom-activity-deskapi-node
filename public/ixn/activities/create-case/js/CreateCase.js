@@ -153,17 +153,37 @@ define( function( require ) {
 		
 		toJbPayload['arguments'].execute.inArguments.push({"smsMessage": smsMessage});
 		
-		//test
-		console.log('toJbPayload arguments');
+
+		//test		
+		//***important, add new field names here
+		var fieldNames = ["priority", "smsMessage"];
 		
-		//test
+		
+		var bolRecordFound = false;
+		
+		//loop through each element in array to see if key already exists
 		for (var i=0; i<toJbPayload['arguments'].execute.inArguments.length; i++) {  
-			for (var key in toJbPayload['arguments'].execute.inArguments[i]) { 			
+			console.log('test1 ' + toJbPayload['arguments'].execute.inArguments[i]);
+			console.log('test2 ' + toJbPayload['arguments'].execute.inArguments['smsMessage']);
+		}	
+		
+		//if not updated, push to array
+		
+		
+		/*
+			for (var key in toJbPayload['arguments'].execute.inArguments[i]) { 	
+
+				if (projects[i].value == value) {
+					projects[i].desc = desc;
+					break; //Stop this loop, we found it!
+				}
+				else
+			
 				console.log("key: " + key);
 				console.log("value: " + toJbPayload['arguments'].execute.inArguments[i][key]);
 			}
-		}	
-		
+		*/
+			
 		
 
 		/*
