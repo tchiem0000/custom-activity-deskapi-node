@@ -14,7 +14,7 @@ define( function( require ) {
     $(window).ready(onRender);
 
     connection.on('initActivity', function(payload) {
-        var priority;
+        //var priority;
 		var smsMessage;
 
         if (payload) {
@@ -31,7 +31,7 @@ define( function( require ) {
 			}
 			
 			//oArgs.priority will contain a value if this activity has already been configured:
-			priority = toJbPayload['configurationArguments'].defaults.priority; 
+			//priority = toJbPayload['configurationArguments'].defaults.priority; 
 
 			smsMessage = oArgs.smsMessage || toJbPayload['configurationArguments'].defaults.smsMessage;			
         }
@@ -48,7 +48,7 @@ define( function( require ) {
 		else
 			connection.trigger('updateButton', { button: 'next', enabled: true });
 
-		$('#selectPriority').find('option[value='+ priority +']').attr('selected', 'selected');	
+		//$('#selectPriority').find('option[value='+ priority +']').attr('selected', 'selected');	
 		
 		$("#smsMessage").val(smsMessage);
 		
@@ -91,10 +91,12 @@ define( function( require ) {
         connection.trigger('requestEndpoints');
 
         // Disable the next button if a value isn't selected
+		/*
         $('#selectPriority').change(function() {
             var priority = getPriority();
             connection.trigger('updateButton', { button: 'next', enabled: Boolean(priority) });
         });
+		*/
 		
 		$('#smsMessage').change(function(){
             var smsMessage = getSMSMessage();
@@ -169,7 +171,7 @@ define( function( require ) {
             "firstName":"{{Contact.Attribute.demotest9.firstname}}", 
             "lastName":"{{Contact.Attribute.demotest9.lastname}}", 
 			"emailAddress": "{{Contact.Default.Email}}", 
-			"priority": getPriority(),
+			//"priority": getPriority(),
 			"smsMessage": getSMSMessage()
         }];
 				
