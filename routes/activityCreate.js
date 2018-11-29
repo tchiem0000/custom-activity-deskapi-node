@@ -105,8 +105,7 @@ function initSMS(req,res) {
 			return;
 		}
 		else{
-			console.log('controller success done');
-			
+			console.log('controller success done');	
 		}
 		
 		/*
@@ -205,21 +204,28 @@ function sendSMS(custId, email, mySMSMessage, next) {
 	
 	//https://sms.lorealuxe.com/loreal/API21/HTTP/sendSMS.ashx?UID=LOREALTEST&PWD=LOREALTEST&SB=mySubject&MSG=testJB&DEST=0926147720&ST=
 	var httpsCall = https.request(options, function(response) {
-		var data = ''
-			,redirect = ''
-			,error = ''
-			;
+		var data = '', redirect = '', error = '';
+		
+		// A chunk of data has been recieved.
 		response.on( 'data' , function( chunk ) {
 			data += chunk;
-		} );				
-		response.on( 'end' , function() {
-			
+		} );	
+		
+		// The whole response has been received. Print out the result.
+		response.on( 'end' , function() {			
 			//201 Created
 			if (response.statusCode == 201) {   
 				data = JSON.parse(data);
 				console.log('onEND sendSMS',response.statusCode,data.id);			
 				next(response.statusCode, 'sendSMS', {id: data.id});
-			} else {
+			} else {  //success
+				console.log('sendSMS send success', response.statusCode, data);
+				console.log('sendSMS send success', response, response.text, data.text);
+				
+				console.log(JSON.parse(data).explanation);
+				
+				console.log('data this' + data);
+				
 				next( response.statusCode, 'sendSMS', {} );
 			}				
 		});								
